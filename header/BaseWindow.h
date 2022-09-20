@@ -1,8 +1,24 @@
 /*****************************************************************************
 * @Author  : JamesNULLiu                                                     *
 * @Date    : 2022/09/18                                                      *
-* @File    :                                                                 *
-* @Brief   :                                                                 *
+* @File    : BaseWindow.h                                                    *
+* @Brief   : The abstract class of all window object.                        *
+*            Three static member is for storing overall information:         *
+*            | {__ID_set} is a set of all available IDs. When creating a wi- *
+*            | | dow, it is given a unique ID from the set. To change the d- *
+*            | | efault number of IDs, i.e., the maximun number of existing  *
+*            | | windows, go to file "ID_Set.h" and change {MAXIDNUM}.       *
+*            | {__NUMOFWINDOW} counts the number of existing windows.        *
+*            | {__ALLPOSITION} is a map stroing position informating of all  *
+*            | | existing windows, with each window's ID as the KEY. The va- *
+*            | | lue is 2 * Point, respectively the left-top and the right-  *
+*            | | bottom. Point type objects also carry color and char infor- *
+*            | | mation which will by the way set the apparence of the wind- *
+*            | | ow.                                                         *
+*            {_existPoint} is a map of all existing points inside the windo- *
+*            | w, with each point's POSITION as the KEY. The definition of   *
+*            | POSITION and the function object to compare 2 POSITION objec- *
+*            | ts are in file "Point.h".                                     *
 * @Version : 1.0.0.0                                                         *
 *****************************************************************************/
 

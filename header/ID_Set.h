@@ -1,8 +1,13 @@
 /*****************************************************************************
 * @Author  : JamesNULLiu                                                     *
 * @Date    : 2022/09/18                                                      *
-* @File    :                                                                 *
-* @Brief   :                                                                 *
+* @File    : ID_Set.h                                                        *
+* @Brief   : Class {ID_set} uses a queue to store digital IDs (0 : {MAXIDNU- *
+*            | M}).                                                          *
+*            Method {get_avaliableAndPop()} is the most recommanded choice   *
+*            | to get a ID (as return value).                                *
+*            When deleting a Window, its ID should be push back to the queue *
+*            | with method {push()}.                                         *
 * @Version : 1.0.0.0                                                         *
 *****************************************************************************/
 
