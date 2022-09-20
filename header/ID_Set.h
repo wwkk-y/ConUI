@@ -1,6 +1,6 @@
 /*****************************************************************************
 * @Author  : JamesNULLiu                                                     *
-* @Date    : 2022/09/18                                                      *
+* @Date    : 2022/Sep/18                                                     *
 * @File    : ID_Set.h                                                        *
 * @Brief   : Class {ID_set} uses a queue to store digital IDs (0 : {MAXIDNU- *
 *            | M}).                                                          *

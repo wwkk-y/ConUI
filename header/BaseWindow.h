@@ -1,6 +1,6 @@
 /*****************************************************************************
 * @Author  : JamesNULLiu                                                     *
-* @Date    : 2022/09/18                                                      *
+* @Date    : 2022/Sep/18                                                     *
 * @File    : BaseWindow.h                                                    *
 * @Brief   : The abstract class of all window object.                        *
 *            Three static member is for storing overall information:         *
@@ -81,7 +81,7 @@ namespace cui {
 
     inline BaseWindow::BaseWindow(Position leftTop, Position rightBot)
     {
-        if (!(PositionComp()(leftTop, rightBot))) {
+        if (!(posComp(leftTop, rightBot))) {
             throw; return;
         }
         // Get an available id for the new window, and pop the id from {__ID_SET} :
