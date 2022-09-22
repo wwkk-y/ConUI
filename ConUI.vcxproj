@@ -134,6 +134,7 @@
     <ClInclude Include="header\Point.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\BaseWindow.cpp" />
     <ClCompile Include="source\Point.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
