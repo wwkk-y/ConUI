@@ -8,8 +8,8 @@ cui::BaseWindow::BaseWindow(Position leftTop, Position rightBot)
     // Get an available id for the new window, and pop the id from {_id_SET} :
     _windowID = _id_SET.get_availableAndPop();
     // Set 2 points' positions in {_allPosition[_windowID]} :
-    _allPosition[_windowID][0].absolutePos = leftTop;
-    _allPosition[_windowID][1].absolutePos = rightBot;
+    _allPosition[_windowID][0].relativePos = leftTop;
+    _allPosition[_windowID][1].relativePos = rightBot;
     // Increase {_numOfWindow} :
     ++_numOfWindow;
     // Calculate offset :
@@ -30,7 +30,7 @@ cui::BaseWindow::~BaseWindow()
 void cui::BaseWindow::refresh() const
 {
     for (const std::pair<Position, Point>& point : _existPoint) {
-        this->gotoXY(point.second.absolutePos);
+        this->gotoXY(point.second.relativePos);
         setOutputColor(point.second.color);
         printf("%c", point.second.ch);
     }

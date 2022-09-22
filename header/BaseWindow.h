@@ -20,7 +20,7 @@
 *            | POSITION and the function object to compare 2 POSITION objec- *
 *            | ts are in file "Point.h".                                     *
 *            {_thisConsole} is the handle of the console.                    *
-* @Version : 1.0.2.0                                                         *
+* @Version : 1.0.1.0                                                         *
 *****************************************************************************/
 
 #ifndef CUI_BASEWINDOW_H
@@ -55,7 +55,7 @@ namespace cui {
         /**
          * @brief Move coursor to position {tPos}.
         */
-        void gotoXY(Position tPos) const { SetConsoleCursorPosition(_thisConsole, tPos); }
+        void gotoXY(Position tPos) const { SetConsoleCursorPosition(_thisConsole, { SHORT(tPos.X + _offsetOnX), SHORT(tPos.Y + _offsetOnY) }); }
         /**
          * @brief Set output color to {color}.
         */
@@ -93,23 +93,22 @@ namespace cui {
     private: // Static members.
         static ID_set      _id_SET;              // a set of all available IDs
         static int         _numOfWindow;         // number of exsisting windows
-        static allWinMap   _allPosition;         // a map of all exsisting windows' positions with key {_windowID}
+        static allWinMap   _allPosition;         // a map of all exsisting windows' absolute positions with key {_windowID}
 
     private:
         int                _windowID;            // unique ID
-        int                _offsetOnX;           // X axis offset based on absolute position of window.
-        int                _offsetOnY;           // Y axis offset based on absolute position of window.
+        SHORT              _offsetOnX;           // X axis offset based on absolute position of window.
+        SHORT              _offsetOnY;           // Y axis offset based on absolute position of window.
         exiPntMap          _existPoint;          // all exist points are stored in the map, with position as key.
     };
-
 
     inline int BaseWindow::get_border(int option) const
     {
         switch (option) {
-        case 0: return _allPosition[_windowID][0].absolutePos.X; break;
-        case 1: return _allPosition[_windowID][0].absolutePos.Y; break;
-        case 2: return _allPosition[_windowID][1].absolutePos.X; break;
-        case 3: return _allPosition[_windowID][1].absolutePos.Y; break;
+        case 0: return _allPosition[_windowID][0].relativePos.X; break;
+        case 1: return _allPosition[_windowID][0].relativePos.Y; break;
+        case 2: return _allPosition[_windowID][1].relativePos.X; break;
+        case 3: return _allPosition[_windowID][1].relativePos.Y; break;
         default: throw; return -1; break;
         }
     }

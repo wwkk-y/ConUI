@@ -8,7 +8,7 @@
 *            | to get a ID (as return value).                                *
 *            When deleting a Window, its ID should be push backColor to the queue *
 *            | with method {push()}.                                         *
-* @Version : 1.0.2.0                                                         *
+* @Version : 1.0.1.0                                                         *
 *****************************************************************************/
 
 #ifndef CUI_ID_SET_H
@@ -26,7 +26,7 @@ namespace cui {
         int get_available()
         {
             if (idset.empty()) { throw; return -1; }
-            return idset.frontColor();
+            return idset.front();
         }
         int get_availableAndPop()
         {

@@ -7,7 +7,7 @@
 *            | object when creating map with key {Position}.                 *
 *            | Specifically, {PositionComp} is used in:                      *
 *            |   - "BasedWindow.h"                                           *
-* @Version : 1.0.2.0                                                         *
+* @Version : 1.0.1.0                                                         *
 *****************************************************************************/
 
 #ifndef CUI_POINT_H
@@ -19,7 +19,7 @@ namespace cui {
     /**
      * @brief A {Point} object has 3 members:
               | 1. {(char)ch} implies whant charactor the point is holding.
-              | 2. {(Position)absolutePos} is the absolute position of the point.
+              | 2. {(Position)relativePos} is the relative position of the point.
               |  | Type {Position} using type {COORD}, which has 2 members: (short)X and (short)Y.
               | 3. {(WORD)color} is the color information.
     */
@@ -27,10 +27,10 @@ namespace cui {
     {
         using Position = COORD;
         char ch = '%';                     // charactor stored in the point
-        Position absolutePos = { 0, 0 };   // abosolute position of the point
+        Position relativePos = { 0, 0 };   // relative position of the point
         WORD color = 0x0;                  // (foreGound & backGround) (color & intensity)
         Point() = default;                 // constructor
-        Point(int x = 0, int y = 0) :absolutePos{ x, y } {};
+        Point(int x = 0, int y = 0) :relativePos{ x, y } {};
     };
     struct PositionComp
     {
@@ -43,4 +43,3 @@ namespace cui {
 }
 
 #endif // !CUI_POINT_H
-
