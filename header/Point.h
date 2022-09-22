@@ -32,11 +32,6 @@ namespace cui {
         Point() = default;                 // constructor
         Point(int x = 0, int y = 0) :absolutePos{ x, y } {};
     };
-
-    /**
-     * @brief The struct is only for all color information of one point, using enum class {Color} and {Inten}.
-     * The color information is: foreground / background color and intensity.
-    */
     struct PositionComp
     {
         using Position = Point::Position;
@@ -46,4 +41,6 @@ namespace cui {
         }
     };
 }
+
 #endif // !CUI_POINT_H
+

@@ -102,6 +102,7 @@ namespace cui {
         exiPntMap          _existPoint;          // all exist points are stored in the map, with position as key.
     };
 
+
     inline int BaseWindow::get_border(int option) const
     {
         switch (option) {
