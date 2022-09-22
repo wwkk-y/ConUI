@@ -81,14 +81,14 @@ namespace cui {
 
     inline BaseWindow::BaseWindow(Position leftTop, Position rightBot)
     {
-        if (!(posComp(leftTop, rightBot))) {
+        if (!(PositionComp()(leftTop, rightBot))) {
             throw; return;
         }
         // Get an available id for the new window, and pop the id from {__ID_SET} :
         _windowID = __ID_SET.get_availableAndPop();
         // Set 2 points' positions in {__ALLPOSITION[_windowID]} :
-        __ALLPOSITION[_windowID][0].absolutePos = leftTop;
-        __ALLPOSITION[_windowID][1].absolutePos = rightBot;
+        __ALLPOSITION[_windowID][0].relativePos = leftTop;
+        __ALLPOSITION[_windowID][1].relativePos = rightBot;
         // Increase {__NUMOFWINDOW} :
         ++__NUMOFWINDOW;
         // Calculate offset :
@@ -98,7 +98,7 @@ namespace cui {
 
     inline BaseWindow::~BaseWindow()
     {
-        // When closing a window, push its {_windowID} back to {__ID_SET} :
+        // When closing a window, push its {_windowID} backColor to {__ID_SET} :
         __ID_SET.push(_windowID);
         // Decrease {__NUMOFWINDOW}:
         --__NUMOFWINDOW;
@@ -107,10 +107,10 @@ namespace cui {
     inline int BaseWindow::get_border(int option) const
     {
         switch (option) {
-        case 0: return __ALLPOSITION[_windowID][0].absolutePos.x; break;
-        case 1: return __ALLPOSITION[_windowID][0].absolutePos.y; break;
-        case 2: return __ALLPOSITION[_windowID][1].absolutePos.x; break;
-        case 3: return __ALLPOSITION[_windowID][1].absolutePos.y; break;
+        case 0: return __ALLPOSITION[_windowID][0].relativePos.x; break;
+        case 1: return __ALLPOSITION[_windowID][0].relativePos.y; break;
+        case 2: return __ALLPOSITION[_windowID][1].relativePos.x; break;
+        case 3: return __ALLPOSITION[_windowID][1].relativePos.y; break;
         default: throw; return -1; break;
         }
     }
